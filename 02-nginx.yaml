@@ -1,0 +1,9 @@
+- name: Install and Start Nginx
+  hosts: catalogue
+  become: yes # Elevate privileges to perform tasks requiring sudo
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.dnf:
+        name: Nginx
+        state: present
+
