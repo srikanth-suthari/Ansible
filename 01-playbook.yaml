@@ -5,5 +5,5 @@
       ansible.builtin.ping:
 
     - name: Display a message
-      ansible.builtin.echo:
+      ansible.builtin.debug:    # Display a custom message after successful ping debug is used intead of echo module
         msg: "Ping test to catalogue server was successful!"
