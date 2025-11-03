@@ -3,3 +3,7 @@
   tasks:
     - name: pinging the catalogue server
       ansible.builtin.ping:
+
+    - name: Display a message
+      ansible.builtin.echo:
+        msg: "Ping test to catalogue server was successful!"
