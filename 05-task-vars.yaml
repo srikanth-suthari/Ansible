@@ -7,5 +7,6 @@
   - name: task level
     vars:
       name: srikanth
+      age: 25
     ansible.builtin.debug:
-      msg: "The name is: {{ name }}"
+      msg: "The name is: {{ name }} and age is: {{ age }}"
