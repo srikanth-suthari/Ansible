@@ -11,4 +11,5 @@
   tasks:
   - name: Prompt Testing
     ansible.builtin.debug:
+      # Here we are using the values from vars_promt as variables in the message
       msg: "The username is: {{ username }} and the password is: {{ password}}"
