@@ -5,5 +5,5 @@
   - details.yaml    # The file which we declared all the variables
   tasks:
   - name: vars file test
-    ansible.builtins.debug:
+    ansible.builtin.debug:    # This is the module or package for debug
       msg: "The details of {{ Name }} is: Age {{ Age }}, Village {{ Village }} and PIN {{ PIN }}"
