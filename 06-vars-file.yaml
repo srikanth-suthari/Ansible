@@ -1,0 +1,9 @@
+- name: vars file
+  hosts: local
+  connection: local
+  vars_file:
+  - details.yaml    # The file which we declared all the variables
+  tasks:
+  - name: vars file test
+    ansible.builtins.debug:
+      msg: "The details of {{ Name }} is: Age {{ Age }}, Village {{ Village }} and PIN {{ PIN }}"
