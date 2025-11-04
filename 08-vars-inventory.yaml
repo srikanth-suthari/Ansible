@@ -5,4 +5,4 @@
   - name: vars from inventory
     ansible.builtin.debug:
       # these variables are defined in the inventory.ini file and being accessed here
-      msg: "This variables are from inventory file {{ Name }}, {{ Age }}"
+      msg: "These variables defined in inventory file are: {{ Name }} and {{ Age }}"
