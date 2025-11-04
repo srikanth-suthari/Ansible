@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars_files:       # This is the pre-defined key for vars files
-  - details.yaml    # The file which we declared all the variables
+  - 06-details.yaml    # The file which we declared all the variables
   tasks:
   - name: vars file test
     ansible.builtin.debug:    # This is the module or package for debug
