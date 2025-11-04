@@ -6,3 +6,6 @@
     ansible.builtin.debug:
     # The values should be passed using the cli for the below variables NAME and AGE
       msg: "The Values Name: '{{ NAME }}' and Age: '{{ AGE }}' are taken from the CLI"
+
+    # The command for this is
+    # ansible-playbook -i inventory -e "NAME=Srikanth" -e "AGE=25" 09-vars-args.yaml
