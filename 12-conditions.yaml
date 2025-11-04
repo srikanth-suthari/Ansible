@@ -26,10 +26,12 @@
     ansible.builtin.debug:
       msg: "The given number is less than 100"
     when: Num | int < 100
+
   - name: checking condition using when
     ansible.builtin.debug:
       msg: "The give number is greater than 100"
     when: Num | int > 100
+    
   - name: checking condition
     ansible.builtin.debug:
       msg: "The given number is equals to 100"
