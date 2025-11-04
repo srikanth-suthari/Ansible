@@ -1,0 +1,12 @@
+- name: Variables
+  hosts: local
+  connection: local
+  vars:
+    Name: Srikanth Chary
+    Age: 25
+    Village: Narsingi
+    PIN: 502248
+  tasks:
+  - name: Accessing the Variables
+    ansible.builtin.debug:
+      msg: "The name is: {{ Name }}, Age is: {{ Age }} from {{ Village }} and Pin is: {{ PIN }}"
