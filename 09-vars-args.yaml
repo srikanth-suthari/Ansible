@@ -5,4 +5,4 @@
   - name: vars from args
     ansible.builtin.debug:
     # The values should be passed using the cli for the below variables NAME and AGE
-      msg: "The Values Name: {{ NAME }} and Age: {{ AGE }} are taken from the CLI"
+      msg: "The Values Name: '{{ NAME }}' and Age: '{{ AGE }}' are taken from the CLI"
