@@ -7,5 +7,5 @@
   - name: task level
     vars:
       name: srikanth
-      ansible.builtin.debug:
-        msg: "The name is: {{ name }}"
+    ansible.builtin.debug:
+      msg: "The name is: {{ name }}"
