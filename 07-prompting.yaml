@@ -1,0 +1,14 @@
+- name: Prompting
+  hosts: local
+  connection: local
+  vars_prompt:        # This is the module for propting and it is a pre-defined key for promping vars
+  - name: username    #
+    prompt: What is your name?
+    private: false    # This will show the input of the user while giving the input on cli
+  - name: password
+    prompt: What is your passwd?
+    private: true     # Here we mentioned that not to show the input of the user while typing on cli
+  tasks:
+  - name: Prompt Testing
+    ansible.builtin.debug:
+      msg: "The username is: {{ username }} and the password is: {{ password}}"
