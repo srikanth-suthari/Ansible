@@ -1,6 +1,6 @@
 - name: task level variables
-  hosts: local
-  connection: local
+  hosts: catalogue
+  #connection: catalogue
   vars:
     name: Srikanth
   tasks:
