@@ -1,5 +1,5 @@
 - name: functions
-  hosts: local
+  hosts: localhost
   connection: local
   vars:
     technologies: DevOps, Linux, Shell, Ansible # string
