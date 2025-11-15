@@ -34,9 +34,9 @@
       loop: "{{ instances }}"
       register: instances_output
 
-    - name: Read instances_output Results
-      ansible.builtin.debug:
-        msg: "{{ instances_output }}"
+    # - name: Read instances_output Results
+    #   ansible.builtin.debug:
+    #     msg: "{{ instances_output }}"
 
     - name: print the instance instance_pub_ips
       ansible.builtin.set_fact:
@@ -46,4 +46,5 @@
 
     - name: print the output of public ips
       ansible.builtin.debug:
-        msg: "{{ public_ips }}"
+        msg: "Public IP for {{ item }} is: {{ item.public_ips[0] }}"
+      loop: "{{ instances_output.results }}"
