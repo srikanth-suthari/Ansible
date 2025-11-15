@@ -7,7 +7,6 @@
     sg_id: sg-076be1371a703c56d
     zone_id: Z0025515EZ5XKJ77DXMH
     domain_name: srikanth-suthari.me
-    # vpc_id: vpc-0d1c86c6a812451c5
 
     # All these can be taken from the command line as env variables with -e like "insances=mongodb"
     # instances:
@@ -30,10 +29,8 @@
         instance_type: t3.micro
         security_group: "{{ sg_id }}"
         image_id: "{{ ami_id }}"
-        # vpc_id: "{{ vpc_id }}"
         tags:
           Name: "{{ item }}"
-        #exatct_count: 1
       loop: "{{ instances }}"
       register: instances_output
 
@@ -43,6 +40,10 @@
 
     - name: print the instance instance_pub_ips
       ansible.builtin.set_fact:
-        private_ips: "{{ instances_output.results |
-    map(attribute='instances') | flatten | map
-    (attribute='public_ip_address') | list }}"
+        public_ips: "{{ instances_output.results |
+        map(attribute='instances') | flatten | map
+        (attribute='public_ip_address') | list }}"
+
+    - name: print the output of public ips
+      ansible.builtin.debug:
+        msg: "{{ public_ips }}"
