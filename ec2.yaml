@@ -2,7 +2,6 @@
 - name: EC2 and Route 53
   hosts: local
   connection: local
-  become: yes
   vars:
     ami_id: ami-09c813fb71547fc4f
     sg_id: sg-076be1371a703c56d
