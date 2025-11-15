@@ -46,5 +46,5 @@
 
     - name: print the output of public ips
       ansible.builtin.debug:
-        msg: "Public IP for {{ item }} is: {{ instances_output.result.instances[0] }}"
-      loop: "{{ instances_output.results }}"
+        msg: "Public IP for {{ item }} is: {{ item }}"
+      loop: "{{ public_ips }}"
