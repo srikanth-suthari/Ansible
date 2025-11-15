@@ -52,4 +52,4 @@
     - name: print the instance name with instance ip
       ansible.builtin.debug:
         msg: "Instance {{ item.item.name }} has public IP {{ item.instances[0].public_ip_address }}"
-      loop: "{{ instaces_output.resluts }}"
+      loop: "{{ instances_output.resluts }}"
