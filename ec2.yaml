@@ -40,3 +40,9 @@
     - name: Read instances_output Results
       ansible.builtin.debug:
         msg: "{{ instances_output }}"
+
+    - name: print the instance instance_pub_ips
+      ansible.builtin.set_fact:
+        private_ips: "{{ instances_output.results |
+    map(attribute='instances') | flatten | map
+    (attribute='public_ip_address') | list }}"
