@@ -39,15 +39,15 @@
       ansible.builtin.debug:
         msg: "{{ instances_output }}"
 
-    - name: print the instance instance_pub_ips
-      ansible.builtin.set_fact:
-        public_ips: "{{ instances_output.results |
-        map(attribute='instances') | flatten | map
-        (attribute='public_ip_address') | json }}"
+    # - name: print the instance instance_pub_ips
+    #   ansible.builtin.set_fact:
+    #     public_ips: "{{ instances_output.results |
+    #     map(attribute='instances') | flatten | map
+    #     (attribute='public_ip_address') | json }}"
 
-    - name: print the output of public ips
-      ansible.builtin.debug:
-        msg: "{{ public_ips }}"
+    # - name: print the output of public ips
+    #   ansible.builtin.debug:
+    #     msg: "{{ public_ips }}"
 
     - name: print the instance name with instance ip
       ansible.builtin.debug:
