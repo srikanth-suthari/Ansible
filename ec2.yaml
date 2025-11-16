@@ -36,9 +36,9 @@
       loop: "{{ instances }}"
       register: instances_output
 
-    - name: Read instances_output Results
-      ansible.builtin.debug:
-        msg: "{{ instances_output }}"
+    # - name: Read instances_output Results
+    #   ansible.builtin.debug:
+    #     msg: "{{ instances_output }}"
 
     - name: print the instance instance_pub_ips
       ansible.builtin.set_fact:
