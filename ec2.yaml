@@ -58,6 +58,11 @@
       ansible.builtin.debug:
         msg: "{{ private_ips }}"
 
+    - name: private ips
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop: "{{ private_ips }}"
+
 
     # Iterating through the all instances for their public ips using this approach
     # - name: print the instance name with instance ip
