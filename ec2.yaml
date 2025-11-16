@@ -58,10 +58,10 @@
       ansible.builtin.debug:
         msg: "{{ private_ips }}"
 
-    - name: private ips
-      ansible.builtin.debug:
-        msg: "{{ item }}"
-      loop: "{{ private_ips }}"
+    # - name: private ips
+    #   ansible.builtin.debug:
+    #     msg: "{{ item }}"
+    #   loop: "{{ private_ips }}"
 
 
     # Iterating through the all instances for their public ips using this approach
@@ -78,6 +78,6 @@
         # This creates a records for each service like mongo.srikanth-suthari.me
         type: A
         ttl: 1
-        value: "{{ item }}"
+        value: "{{ item.instances[0].private_ip_address }}"
         overwrite: true
       loop: "{{ private_ips }}"
