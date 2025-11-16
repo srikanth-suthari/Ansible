@@ -64,3 +64,15 @@
     #   ansible.builtin.debug:
     #     msg: "Instance {{ item.item }} has public IP {{ item.instances[0].public_ip_address }}"
     #   loop: "{{ instances_output.results }}"
+
+    - name: Create route53 records
+      amazon.aws.route53:
+        state: present
+        zone: "{{ domain_name }}"
+        record: "{{ item.item }}.{{ domain_name }}"
+        # This creates a records for each service like mongo.srikanth-suthari.me
+        type: A
+        ttl: 1
+        value: "{{ item }}"
+        overwrite: true
+      loop: "{{ private_ips }}"
