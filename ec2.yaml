@@ -54,7 +54,7 @@
                         map (private_ip_address') | list }}"
 
     - name: print private_ips
-      ansilbe.builtin.debug:
+      ansible.builtin.debug:
         msg: "{{ private_ips }}"
 
 
