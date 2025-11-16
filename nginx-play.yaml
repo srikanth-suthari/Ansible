@@ -5,11 +5,21 @@
   - name: install nginx
     ansible.builtin.dnf:
       name: nginx
+      state: absent
+
+  - name: install httpd
+    ansible.builtin.dnf:
+      name: httpd
       state: present
+
+  - name: start httpd
+    ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: yes
+
   - name: restart nginx
     ansible.builtin.service:
       name: nginx
-      state: restarted # restarted if you have already started earlier
+      state: stopped # restarted if you have already started earlier
       enabled: yes
-
-
