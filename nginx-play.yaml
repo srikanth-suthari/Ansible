@@ -1,6 +1,7 @@
 ---
 - name: nginx installation
   hosts: frontend
+  connection: ssh
   become: yes
   tasks:
 
