@@ -49,6 +49,16 @@
       ansible.builtin.debug:
         msg: "{{ public_ips }}"
 
+    - name: private ips
+      ansilbe.builtin.set_fact:
+        private_ips: "{{ instances_output.results | map(attribute='instances') | flatten |
+                          private_ip_address') | list }}"
+
+    - name: print private_ips
+      ansilbe.builtin.debug:
+        msg: "{{ private_ips }}"
+
+
     # Iterating through the all instances for their public ips using this approach
     # - name: print the instance name with instance ip
     #   ansible.builtin.debug:
