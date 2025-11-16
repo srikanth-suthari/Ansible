@@ -1,16 +1,8 @@
-- name: Install and start Nginx web server
+- name: configure frontend server
   hosts: frontend
-  become: yes # Grants root privileges for installation and service management
+  become: yes
   tasks:
-    - name: Ensure Nginx package is present
-      ansible.builtin.package:
-        name: nginx
-        state: present
-      # Use the appropriate package manager handler based on the target OS:
-      # Use 'ansible.builtin.apt' for Debian/Ubuntu or 'ansible.builtin.yum'/'ansible.builtin.dnf' for RHEL/CentOS
-
-    - name: Start the Nginx service and enable it to start on boot
-      ansible.builtin.service:
-        name: nginx
-        state: started
-        enabled: yes
+  - name: install nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: present
