@@ -1,21 +1,15 @@
----
-- name: nginx installation
+- name: Install and start Nginx web server
   hosts: frontend
-  connection: ssh
-  become: yes
+  become: yes # Grants root privileges for installation and service management
   tasks:
-
-    # - name: Update apt cache (for Debian/Ubuntu)
-    #   ansible.builtin.dnf:
-    #     update_cache: yes
-    #     cache_valid_time: 3600
-
-    - name: install nginx
+    - name: Ensure Nginx package is present
       ansible.builtin.package:
         name: nginx
         state: present
+      # Use the appropriate package manager handler based on the target OS:
+      # Use 'ansible.builtin.apt' for Debian/Ubuntu or 'ansible.builtin.yum'/'ansible.builtin.dnf' for RHEL/CentOS
 
-    - name: start nginx
+    - name: Start the Nginx service and enable it to start on boot
       ansible.builtin.service:
         name: nginx
         state: started
