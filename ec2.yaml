@@ -41,9 +41,8 @@
 
     - name: print the instance instance_pub_ips
       ansible.builtin.set_fact:
-        public_ips: "{{ instances_output.results |
-          map(attribute='instances') | flatten | map
-          (attribute='public_ip_address') | list }}"
+        public_ips: "{{ instances_output.results | map (attribute='instances') | flatten |
+                        map (attribute='public_ip_address') | list }}"
 
     - name: print the output of public ips
       ansible.builtin.debug:
@@ -51,8 +50,8 @@
 
     - name: private ips
       ansilbe.builtin.set_fact:
-        private_ips: "{{ instances_output.results | map(attribute='instances') | flatten |
-                          private_ip_address') | list }}"
+        private_ips: "{{ instances_output.results | map (attribute='instances') | flatten |
+                        map (private_ip_address') | list }}"
 
     - name: print private_ips
       ansilbe.builtin.debug:
