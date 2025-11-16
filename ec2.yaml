@@ -9,6 +9,7 @@
     domain_name: srikanth-suthari.me
 
     # All these can be taken from the command line as env variables with -e like "insances=mongodb"
+    # if we want to provide it as a list then -e "instances=['mongodb','mysql', etc]"
     # instances:
     #   - mongodb
     #   - mysql
