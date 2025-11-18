@@ -1,5 +1,6 @@
 - name: configure frontend server
-  hosts: frontend
+  hosts: localhsot
+  connection: local
   become: yes
   tasks:
   # - name: remove httpd
