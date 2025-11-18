@@ -59,10 +59,11 @@
 
   - name: install docker
     ansible.builtin.dnf:
-      name: docker.io
+      name: docker
       state: present
 
   - name: start and enable docker
     ansible.builtin.service:
       name: docker
       state: restarted
+      enabled: yes
