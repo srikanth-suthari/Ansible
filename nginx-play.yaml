@@ -4,17 +4,17 @@
   tasks:
   - name: install nginx
     ansible.builtin.dnf:
-      name: nginx
+      name: httpd
       state: absent
 
   - name: install httpd
     ansible.builtin.dnf:
-      name: httpd
+      name: nginx
       state: present
 
   - name: start httpd
     ansible.builtin.service:
-      name: httpd
+      name: nginx
       state: restarted
       enabled: yes
 
