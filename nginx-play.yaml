@@ -2,17 +2,17 @@
   hosts: frontend
   become: yes
   tasks:
-  - name: install nginx
+  - name: remove httpd
     ansible.builtin.dnf:
       name: httpd
       state: absent
 
-  - name: install httpd
+  - name: install nginx
     ansible.builtin.dnf:
       name: nginx
       state: present
 
-  - name: start httpd
+  - name: start nginx
     ansible.builtin.service:
       name: nginx
       state: restarted
