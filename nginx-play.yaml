@@ -2,55 +2,66 @@
   hosts: frontend
   become: yes
   tasks:
-  - name: remove httpd
-    ansible.builtin.dnf:
-      name: httpd
-      state: absent
+  # - name: remove httpd
+  #   ansible.builtin.dnf:
+  #     name: httpd
+  #     state: absent
 
-  - name: install nginx
-    ansible.builtin.dnf:
-      name: nginx
-      state: present
+  # - name: install nginx
+  #   ansible.builtin.dnf:
+  #     name: nginx
+  #     state: present
 
-  - name: remove html directory
-    ansible.builtin.file:
-      state: absent
-      path: /usr/share/nginx/html/
+  # - name: remove html directory
+  #   ansible.builtin.file:
+  #     state: absent
+  #     path: /usr/share/nginx/html/
 
-  - name: create html directory
-    ansible.builtin.file:
-      path: /usr/share/nginx/html/
-      state: directory
+  # - name: create html directory
+  #   ansible.builtin.file:
+  #     path: /usr/share/nginx/html/
+  #     state: directory
 
-  - name: download frontend application
-    ansible.builtin.get_url:
-      url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
-      dest: /tmp/frontend.zip
+  # - name: download frontend application
+  #   ansible.builtin.get_url:
+  #     url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+  #     dest: /tmp/frontend.zip
 
-  - name: extract frontend application
-    ansible.builtin.unarchive:
-      src: /tmp/frontend.zip
-      dest: /usr/share/nginx/html/
-      remote_src: yes
+  # - name: extract frontend application
+  #   ansible.builtin.unarchive:
+  #     src: /tmp/frontend.zip
+  #     dest: /usr/share/nginx/html/
+  #     remote_src: yes
 
-  - name: delete default nginx conf
-    ansible.builtin.file:
-      state: absent
-      path: /etc/nginx/nginx.conf
+  # - name: delete default nginx conf
+  #   ansible.builtin.file:
+  #     state: absent
+  #     path: /etc/nginx/nginx.conf
 
-  - name: copy nginx conf
-    ansible.builtin.copy:
-      src: nginx.conf
-      dest: /etc/nginx/nginx.conf
+  # - name: copy nginx conf
+  #   ansible.builtin.copy:
+  #     src: nginx.conf
+  #     dest: /etc/nginx/nginx.conf
 
-  - name: start nginx
-    ansible.builtin.service:
-      name: nginx
-      state: restarted
-      enabled: yes
-
-  # - name: restart nginx
+  # - name: start nginx
   #   ansible.builtin.service:
   #     name: nginx
-  #     state: stopped # restarted if you have already started earlier
+  #     state: restarted
   #     enabled: yes
+
+  # # - name: restart nginx
+  # #   ansible.builtin.service:
+  # #     name: nginx
+  # #     state: stopped # restarted if you have already started earlier
+  # #     enabled: yes
+
+
+  - name: install docker
+    ansible.builtin.dnf:
+      name: docker
+      state: present
+
+  - name: start and enable docker
+    ansible.builtin.service:
+      name: docker
+      state: restarted
